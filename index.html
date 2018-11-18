@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/排序算法（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/Java学习笔记（一）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/18/排序算法（一）/" itemprop="url">学习</a></h1>
+                <a class="post-title-link" href="/2018/11/18/Java学习笔记（一）/" itemprop="url">Java学习笔记（一）</a></h1>
         
 
         <div class="post-meta">
@@ -260,7 +260,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T12:39:25+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T22:27:22+08:00">
                 2018-11-18
               </time>
             
@@ -300,15 +300,7 @@
       
         
           
-            <p>##MaHua是什么?</p>
-<p>##二路归并</p>
-<hr>
-<pre><code>    归并排序的前提是待归并序列应有序，所以应先对两序列进行排序利用下标遍历并比较，按升序（降序）放入目标数组。
-当其中一个数组全部放置完毕以后，另一个数组从待比较位置起，后面的元素也依次全部放入目标数组。
-自此归并结束。
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GuiBingSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span>[] arr2)</span> </span>&#123;</span><br><span class="line">		Arrays.sort(arr);</span><br><span class="line">		Arrays.sort(arr2);</span><br><span class="line">		<span class="keyword">int</span>[] arr3 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">0</span>,b=<span class="number">0</span>,c=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>(a&lt;arr.length&amp;&amp;b&lt;arr2.length) &#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[a]&lt;arr2[b]) &#123;</span><br><span class="line">				arr3[c] = arr[a];</span><br><span class="line">				c++;</span><br><span class="line">				a++;</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				arr3[c]=arr2[b];</span><br><span class="line">				c++;</span><br><span class="line">				b++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a&lt;arr.length) &#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length-a;i++) &#123;</span><br><span class="line">				arr3[c+i] = arr[a+i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(b&lt;arr2.length) &#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr2.length-b;i++) &#123;</span><br><span class="line">				arr3[c+i] = arr2[b+i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> t:arr3) &#123;</span><br><span class="line">			System.out.print(t+<span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] arr = &#123;<span class="number">2</span>,<span class="number">6</span>,<span class="number">12</span>,<span class="number">0</span>,<span class="number">7</span>&#125;;</span><br><span class="line">		<span class="keyword">int</span>[] arr2 = &#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">11</span>&#125;;</span><br><span class="line">		</span><br><span class="line">		sort(arr,arr2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>非官方实现，仅供参考 ~~~
-</code></pre>
+            
           
         
       
